@@ -27,8 +27,12 @@ const stickyBodyStyle = {
 };
 
 const GamePage = () => {
-  const { gameName } = useParams();
-  const decodedName = gameName ? gameName.replace(/-/g, " ") : "";
+  const { gameSlug, year } = useParams();
+  // Remove the trailing '-satta-result' if present, then convert dashes to spaces
+  const nameSlug = gameSlug ? gameSlug.replace(/-satta-results$/, "") : "";
+  const decodedName = nameSlug.replace(/-/g, " ");
+  // Use year param if present, otherwise default to current year
+  const yearToUse = year ? Number(year) : new Date().getFullYear();
 
   const [chartData, setChartData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -51,8 +55,7 @@ const GamePage = () => {
   useEffect(() => {
     const fetchChart = async () => {
       try {
-        const year = new Date().getFullYear();
-        const res = await api.get(`/charts/yearly/${decodedName}?year=${year}`);
+        const res = await api.get(`/charts/yearly/${decodedName}?year=${yearToUse}`);
         setChartData(res.data.data);
       } catch (err) {
         console.error("Failed to fetch chart data:", err);

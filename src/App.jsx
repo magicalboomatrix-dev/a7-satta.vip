@@ -22,12 +22,15 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/charts" element={<Chart />} />
+        <Route path="/yearly-chart/satta-king-results" element={<Chart />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/privacy-policy" element={<Privacypolicy />} />
         <Route path="/terms-and-conditions" element={<Termsconditions />} />
         <Route path="/01-100-ki-family" element={<Rashifamily />} />
-        <Route path="/:gameName" element={<GamePage  />} />
+        <Route path="/chart-year/:gameSlug" element={<GamePage />} />
+        <Route path="/chart-:year/:gameSlug" element={<GamePage />} />
+        <Route path="/chart-2025/:gameSlug" element={<GamePage  />} />
       </Routes>
       <Footer/>
     </>

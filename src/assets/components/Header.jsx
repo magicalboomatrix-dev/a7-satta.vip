@@ -17,7 +17,7 @@ const Header = () => {
                 </Link>
                 </li>
                 <li>
-                <Link className="" to="/charts">
+                <Link className="" to="/yearly-chart/satta-king-results">
                     Chart
                 </Link>
                 </li>

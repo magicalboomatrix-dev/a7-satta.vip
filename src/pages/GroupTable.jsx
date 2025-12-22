@@ -109,9 +109,9 @@ export default function GroupTable({ groupName }) {
                         <td className="foryellow">
                           <Link
                             className="gamenameeach"
-                            to={`/${game.name
+                            to={`/chart-${new Date().getFullYear()}/${game.name
                               .toLowerCase()
-                              .replace(/\s+/g, "-")}`}
+                              .replace(/\s+/g, "-")}-satta-results`}
                           >
                             {game.name}
                           </Link>

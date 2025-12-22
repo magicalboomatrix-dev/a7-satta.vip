@@ -45,8 +45,9 @@ const Home = () => {
   const handleCheck = () => {
     if (!selectedGame) return;
     const gameSlug = selectedGame.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/${gameSlug}?year=${selectedYear}`);
-  };
+    const year = new Date().getFullYear();
+    navigate(`/chart-${year}/${gameSlug}-satta-results`);
+  };   
 
 const UpcomingResults = ({ loadingInitial }) => {
   const [cards, setCards] = useState(

@@ -41,21 +41,25 @@ const Chart = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 text-center">
-              <h2>SATTA KING CHART 2025</h2>
+              <h2>SATTA KING CHART {new Date().getFullYear()}</h2>
             </div>
           </div>
         </div>
       </section>
       <div className="pills-for-chart">
-        {games.map((game) => (
-          <Link
-            key={game._id}
-            className="single-pill"
-            to={`/${game.name.toLowerCase().replace(/\s+/g, "-")}`}
-          >
-            {game.name}
-          </Link>
-        ))}
+        {games.map((game) => {
+          const slug = game.name.toLowerCase().replace(/\s+/g, "-");
+          const year = new Date().getFullYear();
+          return (
+            <Link
+              key={game._id}
+              className="single-pill"
+              to={`/chart-${year}/${slug}-satta-results`}
+            >
+              {game.name}
+            </Link>
+          );
+        })}
       </div>
 
       <br />

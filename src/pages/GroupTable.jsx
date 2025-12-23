@@ -111,7 +111,7 @@ export default function GroupTable({ groupName }) {
                             className="gamenameeach"
                             to={`/chart-${new Date().getFullYear()}/${game.name
                               .toLowerCase()
-                              .replace(/\s+/g, "-")}-satta-results`}
+                              .replace(/\s+/g, "-")}-satta-king-result`}
                           >
                             {game.name}
                           </Link>

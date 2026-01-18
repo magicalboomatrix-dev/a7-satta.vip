@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import SEO from "./utils/SEO";
 import { Link, useNavigate } from "react-router-dom";
 
 import FAQ from "./assets/components/faq";
@@ -14,6 +15,10 @@ import BottomAds from "./pages/BottomPromotion";
 import Luckynumber from "./assets/components/Luckynumber";
 
 const Home = () => {
+  // Inject SEO meta tags for this page
+  // Page name will be derived from route by SEO component
+  // You can customize further if needed
+  
   const [loading, setLoading] = useState(true);
   const [games, setGames] = useState([]);
   const [selectedGame, setSelectedGame] = useState("");
@@ -201,6 +206,8 @@ navigate(`/chart-${selectedYear}/${gameSlug}-satta-king-result`);
   };
 
   return (
+    <>
+      <SEO />
     <div>
       <section className="circlebox">
         <div className="container">

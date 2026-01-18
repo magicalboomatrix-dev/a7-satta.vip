@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
+import SEO from "../utils/SEO";
 import { Link } from "react-router-dom";
 
 
 
 const Rashifamily = () => {
+	// Inject SEO meta tags for this page
 
-  return (
+	return (
+		<>
+			<SEO />
     <>
       <section className="circlebox">
         <div className="container">

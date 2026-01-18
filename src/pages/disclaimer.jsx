@@ -1,7 +1,10 @@
 import React from 'react'
+import SEO from "../utils/SEO";
 
 const Disclaimer = () => {
   return (
+    <>
+      <SEO />
     <div>
         <section>
   <div className="octoberresultchart">

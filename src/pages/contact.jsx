@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SEO from "../utils/SEO";
 import { toast, Toaster } from "react-hot-toast";
 import api from "../utils/api"; // import your axios instance
 
@@ -45,6 +46,8 @@ const Contact = () => {
   };
 
   return (
+    <>
+      <SEO />
     <div>
       <Toaster position="top-right" />
       <section className="contact-fsection">

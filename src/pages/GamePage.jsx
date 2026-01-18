@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import SEO from "../utils/SEO";
 import { useParams } from "react-router-dom";
 import api from "../utils/api";
 
@@ -27,6 +28,7 @@ const stickyBodyStyle = {
 };
 
 const GamePage = () => {
+  // Inject SEO meta tags for this dynamic game page
   const params = useParams();
   let { year } = params;
   let gameSlug = params.gameSlug;
@@ -82,6 +84,8 @@ const GamePage = () => {
   if (loading) return <div>Loading chart...</div>;
 
   return (
+    <>
+      <SEO />
     <div>
       <section className="octoberresultchart">
         <div className="container text-center">

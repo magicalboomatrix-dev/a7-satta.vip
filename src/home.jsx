@@ -663,6 +663,8 @@ navigate(`/chart-${selectedYear}/${gameSlug}-satta-king-result`);
           </div>
         </div>
       </section>
+    </div>
+  </>
 
       <FAQ />
     </div>

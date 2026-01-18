@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import axios from "axios";
+import api from "./api";
 import { useLocation } from "react-router-dom";
 
 /**
@@ -14,10 +14,10 @@ export default function SEO() {
   useEffect(() => {
     const fetchSEO = async () => {
       try {
-        // Derive page name from path (customize as needed)
-        const page = location.pathname === "/" ? "home" : location.pathname.replace(/^\//, "");
-        const { data } = await axios.get(
-          `/api/seo/get?page=${encodeURIComponent(page)}&site=${encodeURIComponent(site)}`
+        // Use the full pathname for page (so /chart-2026/agra-satta-king-result matches backend)
+        const page = location.pathname;
+        const { data } = await api.get(
+          `/seo/get?page=${encodeURIComponent(page)}&site=${encodeURIComponent(site)}`
         );
         if (data) {
           if (data.metaTitle) document.title = data.metaTitle;

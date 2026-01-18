@@ -20,59 +20,79 @@ export default function SEO() {
           `/seo/get?page=${encodeURIComponent(page)}&site=${encodeURIComponent(site)}`
         );
         if (data) {
-          if (data.metaTitle) document.title = data.metaTitle;
-          // Remove old meta tags
-          document.querySelectorAll("meta[data-dynamic-seo]").forEach((el) => el.remove());
-          // Add meta description
-          if (data.metaDescription) {
+          // Title
+          if (typeof data.metaTitle === "string" && data.metaTitle.trim()) {
+            document.title = data.metaTitle;
+          }
+          // Remove old meta/link tags
+          document.querySelectorAll("meta[data-dynamic-seo], link[data-dynamic-seo]").forEach((el) => el.remove());
+
+          // Description
+          if (typeof data.metaDescription === "string" && data.metaDescription.trim()) {
             const meta = document.createElement("meta");
             meta.name = "description";
             meta.content = data.metaDescription;
             meta.setAttribute("data-dynamic-seo", "true");
             document.head.appendChild(meta);
           }
-          // Add canonical
-          if (data.canonical) {
+
+          // Canonical
+          if (typeof data.canonical === "string" && data.canonical.trim()) {
             let link = document.querySelector("link[rel='canonical']");
             if (!link) {
               link = document.createElement("link");
               link.rel = "canonical";
               document.head.appendChild(link);
             }
-            link.href = data.canonical;
+            // Ensure canonical starts with http/https
+            let canonicalUrl = data.canonical.trim();
+            if (!/^https?:\/\//i.test(canonicalUrl)) {
+              canonicalUrl = "https://" + canonicalUrl.replace(/^\/+/, "");
+            }
+            link.href = canonicalUrl;
             link.setAttribute("data-dynamic-seo", "true");
           }
-          // Add robots
-          if (data.robots) {
+
+          // Robots
+          if (typeof data.robots === "string" && data.robots.trim()) {
             const meta = document.createElement("meta");
             meta.name = "robots";
             meta.content = data.robots;
             meta.setAttribute("data-dynamic-seo", "true");
             document.head.appendChild(meta);
           }
-          // Add author
-          if (data.author) {
+
+          // Author
+          if (typeof data.author === "string" && data.author.trim()) {
             const meta = document.createElement("meta");
             meta.name = "author";
             meta.content = data.author;
             meta.setAttribute("data-dynamic-seo", "true");
             document.head.appendChild(meta);
           }
-          // Add publisher
-          if (data.publisher) {
+
+          // Publisher
+          if (typeof data.publisher === "string" && data.publisher.trim()) {
             const meta = document.createElement("meta");
             meta.name = "publisher";
             meta.content = data.publisher;
             meta.setAttribute("data-dynamic-seo", "true");
             document.head.appendChild(meta);
           }
-          // Add focus keywords
-          if (data.focusKeywords && data.focusKeywords.length) {
-            const meta = document.createElement("meta");
-            meta.name = "keywords";
-            meta.content = data.focusKeywords.join(", ");
-            meta.setAttribute("data-dynamic-seo", "true");
-            document.head.appendChild(meta);
+
+          // Focus Keywords (array or string)
+          if (data.focusKeywords) {
+            let keywords = data.focusKeywords;
+            if (typeof keywords === "string") {
+              keywords = keywords.split(",").map(k => k.trim()).filter(Boolean);
+            }
+            if (Array.isArray(keywords) && keywords.length) {
+              const meta = document.createElement("meta");
+              meta.name = "keywords";
+              meta.content = keywords.join(", ");
+              meta.setAttribute("data-dynamic-seo", "true");
+              document.head.appendChild(meta);
+            }
           }
         }
       } catch (err) {

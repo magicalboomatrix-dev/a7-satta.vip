@@ -86,7 +86,7 @@ const GamePage = () => {
   return (
     <>
       <SEO />
-    <div>
+      <div>
       <section className="octoberresultchart">
         <div className="container text-center">
           <h1>
@@ -149,7 +149,8 @@ const GamePage = () => {
           </tbody>
         </table>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

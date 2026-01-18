@@ -10,7 +10,6 @@ const Rashifamily = () => {
 	return (
 		<>
 			<SEO />
-    <>
       <section className="circlebox">
         <div className="container">
           <div className="row">
@@ -156,9 +155,9 @@ const Rashifamily = () => {
 		</div>
       </div>
 
-      <br />
-    </>
-  );
+			<br />
+		</>
+	);
 };
 
 export default Rashifamily;

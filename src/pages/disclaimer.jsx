@@ -5,7 +5,7 @@ const Disclaimer = () => {
   return (
     <>
       <SEO />
-    <div>
+      <div>
         <section>
   <div className="octoberresultchart">
     <div className="container">
@@ -167,10 +167,10 @@ const Disclaimer = () => {
       Terms and Conditions or Privacy Policy posted on this Site.
     </p>
   </div>
-</section>
-
-    </div>
-  )
+  </section>
+  </div>
+  </>
+  );
 }
 
 export default Disclaimer

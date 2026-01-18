@@ -26,7 +26,6 @@ const Chart = () => {
   return (
     <>
       <SEO />
-    <>
       <section className="circlebox">
         <div className="container">
           <div className="row">

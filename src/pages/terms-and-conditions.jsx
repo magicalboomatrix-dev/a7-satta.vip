@@ -5,7 +5,7 @@ const Termsconditions = () => {
   return (
     <>
       <SEO />
-    <div>
+      <div>
       <section>
   <div className="octoberresultchart">
     <div className="container">
@@ -20,8 +20,7 @@ const Termsconditions = () => {
     <div className="rw">
       <h2>1. Acceptance of Terms</h2>
       <p>
-        By using this Site, you confirm that you are at least 18 years old and
-        have the legal capacity to enter into this agreement.
+        By using this Site, you confirm that you are at least 18 years old and have the legal capacity to enter into this agreement.
       </p>
       <p>
         If you do not agree with these Terms or any part thereof, you must
@@ -300,7 +299,8 @@ const Termsconditions = () => {
 </section>
 
     </div>
-  )
+    </>
+  );
 }
 
 export default Termsconditions

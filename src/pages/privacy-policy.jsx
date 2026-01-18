@@ -5,18 +5,18 @@ const Privacypolicy = () => {
   return (
     <>
       <SEO />
-    <div>
-      <section>
-  <div className="octoberresultchart">
-    <div className="container">
-      <div className="row">
-        <div className="col-md-12 text-center">
-          <h1 style={{ textTransform: "uppercase" }}>privacy policy</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="forChart termspage">
+      <div>
+        <section>
+          <div className="octoberresultchart">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12 text-center">
+                  <h1 style={{ textTransform: "uppercase" }}>privacy policy</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="forChart termspage">
     <h2>
       <strong>1. Information We Collect</strong>
     </h2>
@@ -230,11 +230,11 @@ const Privacypolicy = () => {
       By accessing or using this Site, you acknowledge that you have read and
       understood this Privacy Policy and agree to its terms.
     </p>
-  </div>
-</section>
-
+        </div>
+      </section>
     </div>
-  )
+    </>
+  );
 }
 
 export default Privacypolicy

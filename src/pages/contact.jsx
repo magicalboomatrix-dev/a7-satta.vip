@@ -48,9 +48,9 @@ const Contact = () => {
   return (
     <>
       <SEO />
-    <div>
-      <Toaster position="top-right" />
-      <section className="contact-fsection">
+      <div>
+        <Toaster position="top-right" />
+        <section className="contact-fsection">
         <div className="container">
           <div className="contact_form">
             <p>
@@ -112,9 +112,10 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      <br />
-      <br />
-    </div>
+        <br />
+        <br />
+      </div>
+    </>
   );
 };
 

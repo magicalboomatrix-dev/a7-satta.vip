@@ -8,8 +8,11 @@ import { useLocation } from "react-router-dom";
  */
 export default function SEO() {
   const location = useLocation();
-  // Always use current hostname for site
-  const site = window.location.hostname;
+  // Normalize host so it matches how values are stored in DB
+  const rawHost = window.location.hostname || "";
+  const normalizedHost = rawHost.replace(/^www\./i, "").toLowerCase();
+  // Allow overriding the site for local/dev via env (e.g. VITE_SEO_SITE=a7satta.vip)
+  const site = (import.meta.env.VITE_SEO_SITE || normalizedHost || "a7satta.vip").toLowerCase();
 
   useEffect(() => {
     const fetchSEO = async () => {
@@ -96,6 +99,7 @@ export default function SEO() {
           }
         }
       } catch (err) {
+        console.error(err);
         // Optionally handle error
       }
     };

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SEO from "../utils/SEO";
 import { Link } from "react-router-dom";
 import FAQ from "../assets/components/faq";
 import api from "../utils/api";
@@ -25,7 +24,6 @@ const Chart = () => {
 
   return (
     <>
-      <SEO />
       <section className="circlebox">
         <div className="container">
           <div className="row">

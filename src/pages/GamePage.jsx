@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SEO from "../utils/SEO";
 import { useParams } from "react-router-dom";
 import api from "../utils/api";
 
@@ -85,7 +84,6 @@ const GamePage = () => {
 
   return (
     <>
-      <SEO />
       <div>
       <section className="octoberresultchart">
         <div className="container text-center">

@@ -4,6 +4,7 @@ import axios from "axios";
 const api = axios.create({
   baseURL: "https://api.a7satta.vip/api",
     // baseURL: "http://localhost:5000/api",
+
 });
 
 // Attach token automatically

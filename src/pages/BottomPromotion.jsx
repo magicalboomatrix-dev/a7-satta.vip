@@ -4,10 +4,15 @@ import api from "../utils/api";
 export default function BottomAdsSection() {
   const [ads, setAds] = useState([]);
 
+  // Normalize site from current browser URL (no env override)
+  const rawHost = typeof window !== "undefined" ? window.location.hostname : "";
+  const normalizedHost = rawHost.replace(/^www\./i, "").toLowerCase();
+  const site = (normalizedHost || "a7satta.vip").toLowerCase();
+
   useEffect(() => {
     async function fetchAds() {
       try {
-        const res = await api.get("/ads");
+        const res = await api.get(`/ads?site=${encodeURIComponent(site)}`);
         const data = res.data;
 
         if (Array.isArray(data)) {
@@ -23,7 +28,7 @@ export default function BottomAdsSection() {
     }
 
     fetchAds();
-  }, []);
+  }, [site]);
 
   if (ads.length === 0) return null; // Hide section if no ads
 

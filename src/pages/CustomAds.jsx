@@ -24,10 +24,15 @@ function ensureAnchorsOpenInNewTab(htmlString) {
 export default function TopAdsSection() {
   const [topAds, setTopAds] = useState([]);
 
+  // Normalize site from current browser URL (no env override)
+  const rawHost = typeof window !== "undefined" ? window.location.hostname : "";
+  const normalizedHost = rawHost.replace(/^www\./i, "").toLowerCase();
+  const site = (normalizedHost || "a7satta.vip").toLowerCase();
+
   useEffect(() => {
     async function fetchAds() {
       try {
-        const res = await api.get("/ads");
+        const res = await api.get(`/ads?site=${encodeURIComponent(site)}`);
         const data = res.data;
 
         if (Array.isArray(data)) {
@@ -44,7 +49,7 @@ export default function TopAdsSection() {
     }
 
     fetchAds();
-  }, []);
+  }, [site]);
 
   if (topAds.length === 0) return null;
 
